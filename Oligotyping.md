@@ -55,10 +55,10 @@ grep -c '>' core_otus.fa
 sed -e 's/\./_/g' core_otus.fa > core_otus_oligo.fa
 ```
 
-## Align reads to GreenGenes
+## Align reads to Silva
 ```
 #align sequences (submitted as cluster job b/c ~200k sequences)
-align_seqs.py -i core_otus_oligo.fa -o aligned_core_otus_oligo -t /mnt/home/kearnspa/gg_13_8_otus/rep_set_aligned/97_otus.fasta
+align_seqs.py -i core_otus_oligo.fa -o aligned_core_otus_oligo -t silva123.fasta
 
 #filter the alignment
 filter_alignment.py -i core_otus_oligo_aligned.fasta -o filtered_alignment

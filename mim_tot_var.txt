@@ -1,4 +1,0 @@
-Variable	Percent_Var
-Genotype	0.114
-Site_planted	0.523
-Unexplained	0.363

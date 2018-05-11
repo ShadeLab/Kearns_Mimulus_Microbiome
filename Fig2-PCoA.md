@@ -19,21 +19,21 @@ mim.classfit<-envfit(mim.dis, mim_class)
 
 #environment scores
 mim.scores<-as.data.frame(scores(mim.envfit, display='vectors'))
-mim.scores$variable<-c("Root_Mass", "Shoot_Mass", "pH", "P", "K", "Ca", "Mg", "Cu", "% Org Mat", "Na", "NO3", "NH4", "% H2O", "Tot N", "S")
-#class scores
-mim.scores.c<-as.data.frame(scores(mim.classfit, display='vectors'))
-#pull pvalues
-mim.scores.c$pvals<-mim.classfit$vectors$pvals
-#remove p>0.1
-mim.classscores<-subset(mim.scores.c, pvals<0.05)
 
-#mim.scores<-read.table("mim.scores.txt", header=T, row.names=1, sep="")
+#wite scores to file
+write.csv(mim.scores, 'mim.score.csv')
+
+#re-read in scores with environ data
+mim.scores<-read.table("mim.scores.txt", header=T, row.names=1, sep="")
 
 #remove p>0.1
 mim.scores<-mim.scores[-c(2,3,9,11,12,14,15),]
 
+#read in PCoA coords
 library(readr)
 mimulus_coords <- read_delim("mimulus_coords.txt", "\t", escape_double = FALSE, trim_ws = TRUE)
+
+#plot PCoA with envfit
 library(ggplot2)
 ggplot(mimulus_coords, aes(WU_Axis1, WU_axis2))+
     theme_bw()+

@@ -1,0 +1,5 @@
+Per_Var	Var
+0.701754386	Genetics
+0.175438596	Origin
+0.087719298	Root_Mass
+0.035087719	Shoot_Mass
